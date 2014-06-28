@@ -7,15 +7,15 @@ class Create_posts
 	public function up()
 	{
 		\DBUtil::create_table('posts', array(
-			'id' => array('constraint' => 11, 'type' => 'int', 'auto_increment' => true, 'unsigned' => true),
+			'id' => array('constraint' => 11, 'type' => 'int'),
 			'title' => array('constraint' => 255, 'type' => 'varchar'),
-			'body' => array('type' => 'TEXT'),
+			'body' => array('type' => 'text'),
 			'img' => array('constraint' => 255, 'type' => 'varchar'),
-			'user_id' => array('type' => 'INT'),
-			'category_id' => array('type' => 'INT'),
-			'deadline' => array('type' => 'DATETIME'),
-			'location_longitude' => array('type' => 'INT'),
-			'location_latitude' => array('type' => 'INT'),
+			'user_id' => array('constraint' => 11, 'type' => 'int'),
+			'category_id' => array('constraint' => 11, 'type' => 'int'),
+			'deadline' => array('type' => 'datatime'),
+			'location_longitude' => array('constraint' => 11, 'type' => 'int'),
+			'location_latitude' => array('constraint' => 11, 'type' => 'int'),
 			'created_at' => array('constraint' => 11, 'type' => 'int', 'null' => true),
 			'updated_at' => array('constraint' => 11, 'type' => 'int', 'null' => true),
 

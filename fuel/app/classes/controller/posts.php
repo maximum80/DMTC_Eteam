@@ -1,41 +1,153 @@
 <?php
-
-class Controller_Posts extends Controller_Template
-{
+class Controller_Posts extends Controller_Template{
 
 	public function action_index()
 	{
-		$data["subnav"] = array('index'=> 'active' );
-		$this->template->title = 'Posts &raquo; Index';
+		$data['posts'] = Model_Post::find('all');
+		$this->template->title = "Posts";
 		$this->template->content = View::forge('posts/index', $data);
+
 	}
 
-	public function action_add()
+	public function action_view($id = null)
 	{
-		$data["subnav"] = array('add'=> 'active' );
-		$this->template->title = 'Posts &raquo; Add';
-		$this->template->content = View::forge('posts/add', $data);
+		is_null($id) and Response::redirect('posts');
+
+		if ( ! $data['post'] = Model_Post::find($id))
+		{
+			Session::set_flash('error', 'Could not find post #'.$id);
+			Response::redirect('posts');
+		}
+
+		$this->template->title = "Post";
+		$this->template->content = View::forge('posts/view', $data);
+
 	}
 
-	public function action_confirm()
+	public function action_create()
 	{
-		$data["subnav"] = array('confirm'=> 'active' );
-		$this->template->title = 'Posts &raquo; Confirm';
-		$this->template->content = View::forge('posts/confirm', $data);
+		if (Input::method() == 'POST')
+		{
+			$val = Model_Post::validate('create');
+			
+			if ($val->run())
+			{
+				$post = Model_Post::forge(array(
+					'id' => Input::post('id'),
+					'title' => Input::post('title'),
+					'body' => Input::post('body'),
+					'img' => Input::post('img'),
+					'user_id' => Input::post('user_id'),
+					'category_id' => Input::post('category_id'),
+					'deadline' => Input::post('deadline'),
+					'location_longitude' => Input::post('location_longitude'),
+					'location_latitude' => Input::post('location_latitude'),
+				));
+
+				if ($post and $post->save())
+				{
+					Session::set_flash('success', 'Added post #'.$post->id.'.');
+
+					Response::redirect('posts');
+				}
+
+				else
+				{
+					Session::set_flash('error', 'Could not save post.');
+				}
+			}
+			else
+			{
+				Session::set_flash('error', $val->error());
+			}
+		}
+
+		$this->template->title = "Posts";
+		$this->template->content = View::forge('posts/create');
+
 	}
 
-	public function action_detail()
+	public function action_edit($id = null)
 	{
-		$data["subnav"] = array('detail'=> 'active' );
-		$this->template->title = 'Posts &raquo; Detail';
-		$this->template->content = View::forge('posts/detail', $data);
+		is_null($id) and Response::redirect('posts');
+
+		if ( ! $post = Model_Post::find($id))
+		{
+			Session::set_flash('error', 'Could not find post #'.$id);
+			Response::redirect('posts');
+		}
+
+		$val = Model_Post::validate('edit');
+
+		if ($val->run())
+		{
+			$post->id = Input::post('id');
+			$post->title = Input::post('title');
+			$post->body = Input::post('body');
+			$post->img = Input::post('img');
+			$post->user_id = Input::post('user_id');
+			$post->category_id = Input::post('category_id');
+			$post->deadline = Input::post('deadline');
+			$post->location_longitude = Input::post('location_longitude');
+			$post->location_latitude = Input::post('location_latitude');
+
+			if ($post->save())
+			{
+				Session::set_flash('success', 'Updated post #' . $id);
+
+				Response::redirect('posts');
+			}
+
+			else
+			{
+				Session::set_flash('error', 'Could not update post #' . $id);
+			}
+		}
+
+		else
+		{
+			if (Input::method() == 'POST')
+			{
+				$post->id = $val->validated('id');
+				$post->title = $val->validated('title');
+				$post->body = $val->validated('body');
+				$post->img = $val->validated('img');
+				$post->user_id = $val->validated('user_id');
+				$post->category_id = $val->validated('category_id');
+				$post->deadline = $val->validated('deadline');
+				$post->location_longitude = $val->validated('location_longitude');
+				$post->location_latitude = $val->validated('location_latitude');
+
+				Session::set_flash('error', $val->error());
+			}
+
+			$this->template->set_global('post', $post, false);
+		}
+
+		$this->template->title = "Posts";
+		$this->template->content = View::forge('posts/edit');
+
 	}
 
-	public function action_complete()
+	public function action_delete($id = null)
 	{
-		$data["subnav"] = array('complete'=> 'active' );
-		$this->template->title = 'Posts &raquo; Complete';
-		$this->template->content = View::forge('posts/complete', $data);
+		is_null($id) and Response::redirect('posts');
+
+		if ($post = Model_Post::find($id))
+		{
+			$post->delete();
+
+			Session::set_flash('success', 'Deleted post #'.$id);
+		}
+
+		else
+		{
+			Session::set_flash('error', 'Could not delete post #'.$id);
+		}
+
+		Response::redirect('posts');
+
 	}
+
 
 }

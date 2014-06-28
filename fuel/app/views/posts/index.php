@@ -4,7 +4,6 @@
 <table class="table table-striped">
 	<thead>
 		<tr>
-			<th>Id</th>
 			<th>Title</th>
 			<th>Body</th>
 			<th>Img</th>
@@ -19,7 +18,6 @@
 	<tbody>
 <?php foreach ($posts as $item): ?>		<tr>
 
-			<td><?php echo $item->id; ?></td>
 			<td><?php echo $item->title; ?></td>
 			<td><?php echo $item->body; ?></td>
 			<td><?php echo $item->img; ?></td>

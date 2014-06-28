@@ -13,7 +13,7 @@ class Controller_Posts extends Controller_Template{
 	{
 		is_null($id) and Response::redirect('posts');
 
-		if ( ! $data['post'] = Model_Post::find($id))
+		if ( ! $data['post'] = Model_Posts::find($id))
 		{
 			Session::set_flash('error', 'Could not find post #'.$id);
 			Response::redirect('posts');
@@ -28,12 +28,11 @@ class Controller_Posts extends Controller_Template{
 	{
 		if (Input::method() == 'POST')
 		{
-			$val = Model_Post::validate('create');
-			
+			$val = Model_Posts::validate('create');
+
 			if ($val->run())
 			{
-				$post = Model_Post::forge(array(
-					'id' => Input::post('id'),
+				$posts = Model_Posts::forge(array(
 					'title' => Input::post('title'),
 					'body' => Input::post('body'),
 					'img' => Input::post('img'),
@@ -44,9 +43,9 @@ class Controller_Posts extends Controller_Template{
 					'location_latitude' => Input::post('location_latitude'),
 				));
 
-				if ($post and $post->save())
+				if ($posts and $posts->save())
 				{
-					Session::set_flash('success', 'Added post #'.$post->id.'.');
+					Session::set_flash('success', 'Added post #'.$posts->id.'.');
 
 					Response::redirect('posts');
 				}
@@ -71,17 +70,16 @@ class Controller_Posts extends Controller_Template{
 	{
 		is_null($id) and Response::redirect('posts');
 
-		if ( ! $post = Model_Post::find($id))
+		if ( ! $post = Model_Posts::find($id))
 		{
 			Session::set_flash('error', 'Could not find post #'.$id);
 			Response::redirect('posts');
 		}
 
-		$val = Model_Post::validate('edit');
+		$val = Model_Posts::validate('edit');
 
 		if ($val->run())
 		{
-			$post->id = Input::post('id');
 			$post->title = Input::post('title');
 			$post->body = Input::post('body');
 			$post->img = Input::post('img');
@@ -108,15 +106,14 @@ class Controller_Posts extends Controller_Template{
 		{
 			if (Input::method() == 'POST')
 			{
-				$post->id = $val->validated('id');
-				$post->title = $val->validated('title');
-				$post->body = $val->validated('body');
-				$post->img = $val->validated('img');
-				$post->user_id = $val->validated('user_id');
-				$post->category_id = $val->validated('category_id');
-				$post->deadline = $val->validated('deadline');
-				$post->location_longitude = $val->validated('location_longitude');
-				$post->location_latitude = $val->validated('location_latitude');
+				$posts->title = $val->validated('title');
+				$posts->body = $val->validated('body');
+				$posts->img = $val->validated('img');
+				$posts->user_id = $val->validated('user_id');
+				$posts->category_id = $val->validated('category_id');
+				$posts->deadline = $val->validated('deadline');
+				$posts->location_longitude = $val->validated('location_longitude');
+				$posts->location_latitude = $val->validated('location_latitude');
 
 				Session::set_flash('error', $val->error());
 			}
@@ -133,9 +130,9 @@ class Controller_Posts extends Controller_Template{
 	{
 		is_null($id) and Response::redirect('posts');
 
-		if ($post = Model_Post::find($id))
+		if ($posts = Model_Posts::find($id))
 		{
-			$post->delete();
+			$posts->delete();
 
 			Session::set_flash('success', 'Deleted post #'.$id);
 		}

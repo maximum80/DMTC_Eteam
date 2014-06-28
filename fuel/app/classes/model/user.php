@@ -25,4 +25,15 @@ class Model_User extends \Orm\Model
 	);
 	protected static $_table_name = 'users';
 
+
+	public static function validate($factory)
+	{
+		$val = Validation::forge($factory);
+		$val->add_field('name', 'Name', 'required|max_length[255]');
+		$val->add_field('email', 'Email', 'required');
+		$val->add_field('pass', 'Pass', 'required|max_length[255]');
+		$val->add_field('tel', 'Tel', 'required|valid_string[numeric]');
+
+		return $val;
+	}
 }

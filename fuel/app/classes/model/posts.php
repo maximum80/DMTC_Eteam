@@ -1,7 +1,7 @@
 <?php
 use Orm\Model;
 
-class Model_Post extends Model
+class Model_Posts extends Model
 {
 	protected static $_properties = array(
 		'id',

@@ -1,9 +1,6 @@
 <h2>Viewing <span class='muted'>#<?php echo $post->id; ?></span></h2>
 
 <p>
-	<strong>Id:</strong>
-	<?php echo $post->id; ?></p>
-<p>
 	<strong>Title:</strong>
 	<?php echo $post->title; ?></p>
 <p>

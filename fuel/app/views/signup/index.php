@@ -1,6 +1,6 @@
-<ul class="nav nav-pills">
-	<li class='<?php echo Arr::get($subnav, "index" ); ?>'><?php echo Html::anchor('signup/index','Index');?></li>
-	<li class='<?php echo Arr::get($subnav, "confirm" ); ?>'><?php echo Html::anchor('signup/confirm','Confirm');?></li>
+<ul class="nav nav-pills"></ul>
+<p>会員登録情報を入力して下さい</p>
 
-</ul>
-<p>Index</p>
+<?php echo render('signup/_form'); ?>
+
+<p><?php echo Html::anchor('signup', 'Back'); ?></p>

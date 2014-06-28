@@ -7,7 +7,7 @@ class Create_posts
 	public function up()
 	{
 		\DBUtil::create_table('posts', array(
-			'id' => array('constraint' => 11, 'type' => 'int'),
+			'id' => array('constraint' => 11, 'type' => 'int', 'auto_increment' => true, 'unsigned' => true),
 			'title' => array('constraint' => 255, 'type' => 'varchar'),
 			'body' => array('type' => 'text'),
 			'img' => array('constraint' => 255, 'type' => 'varchar'),

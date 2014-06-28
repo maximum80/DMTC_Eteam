@@ -19,7 +19,7 @@ class Controller_Signup extends Controller_Template
 				));
 
 				if ($user and $user->save()) {
-					Session::set_flash('success', 'Added post #'.$user->id.'.');
+					Session::set_flash('success', '会員登録が完了しました。');
 					Response::redirect('mypage');
 				}
 
@@ -36,11 +36,6 @@ class Controller_Signup extends Controller_Template
 		$this->template->title = "会員登録";
 		$this->template->content = View::forge('signup/index');
 
-	}
-
-	public function action_confirm() {
-		$this->template->title = 'Mypage &raquo; Index';
-		$this->template->content = View::forge('signup/confirm');
 	}
 
 }

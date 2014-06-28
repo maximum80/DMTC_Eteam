@@ -46,7 +46,6 @@ class Controller_Posts extends Controller_Template{
 				if ($posts and $posts->save())
 				{
 					Session::set_flash('success', 'Added post #'.$posts->id.'.');
-
 					Response::redirect('posts');
 				}
 
@@ -89,10 +88,8 @@ class Controller_Posts extends Controller_Template{
 			$post->location_longitude = Input::post('location_longitude');
 			$post->location_latitude = Input::post('location_latitude');
 
-			if ($post->save())
-			{
+			if ($post->save()) {
 				Session::set_flash('success', 'Updated post #' . $id);
-
 				Response::redirect('posts');
 			}
 

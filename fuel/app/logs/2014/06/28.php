@@ -22,3 +22,4 @@ ERROR - 2014-06-28 12:14:05 --> Notice - Undefined variable: subnav in /Applicat
 ERROR - 2014-06-28 12:14:43 --> Notice - Undefined variable: subnav in /Applications/MAMP/htdocs/DMTC_Eteam/fuel/app/views/signup/confirm.php on line 2
 ERROR - 2014-06-28 12:50:52 --> Parsing Error - syntax error, unexpected 'public' (T_PUBLIC) in /Applications/MAMP/htdocs/DMTC_Eteam/fuel/app/classes/controller/signup.php on line 49
 ERROR - 2014-06-28 12:53:13 --> Notice - Undefined variable: name_error in /Applications/MAMP/htdocs/DMTC_Eteam/fuel/app/views/signup/index.php on line 9
+ERROR - 2014-06-28 15:40:15 --> Notice - Undefined variable: subnav in /Applications/MAMP/htdocs/DMTC_Eteam/fuel/app/views/mypage/index.php on line 2

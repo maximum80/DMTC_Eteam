@@ -21,36 +21,44 @@
  */
 class Controller_Welcome extends Controller
 {
+   public function action_index()
+    {
+        $error = null;
 
-	/**
-	 * The basic welcome message
-	 *
-	 * @access  public
-	 * @return  Response
-	 */
-	public function action_index()
-	{
-		return Response::forge(View::forge('welcome/index'));
-	}
+        $view = View::forge('welcome/index');
+        $form = Fieldset::forge();
 
-	/**
-	 * A typical "Hello, Bob!" type example.  This uses a ViewModel to
-	 * show how to use them.
-	 *
-	 * @access  public
-	 * @return  Response
-	 */
-	public function action_hello()
-	{
-		return Response::forge(ViewModel::forge('welcome/hello'));
-	}
+        $form->add('email', 'メールアドレス', array('maxlength' => 40))
+            ->add_rule('required');
 
-	/**
-	 * The 404 action for the application.
-	 *
-	 * @access  public
-	 * @return  Response
-	 */
+        $form->add('password', 'パスワード', array('type' => 'password'))
+            ->add_rule('required')
+            ->add_rule('max_length', 16);
+
+        $form->add('submit', '', array('type' => 'submit', 'value' => 'ログイン'));
+        $form->repopulate();
+
+        $auth = Auth::instance();
+
+        if (Input::post()) {
+            if ($form->validation()->run()) {
+                if ($auth->login(Input::post('email'), Input::post('password'))) {
+                    // ログイン成功時
+                    Response::redirect('mypage/index');
+                }
+                $error = 'ログイン失敗に失敗しました';
+            } else {
+                $error = 'ログイン失敗に失敗しました';
+            }
+        }
+
+        $view->set_safe('form', $form->build(Uri::create('')));
+        $view->set('error', $error);
+
+        return $view;
+    }
+
+
 	public function action_404()
 	{
 		return Response::forge(ViewModel::forge('welcome/404'), 404);

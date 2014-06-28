@@ -1,9 +1,9 @@
 <?php echo Form::open(array("class"=>"form-horizontal")); ?>
 	<fieldset>
 		<div class="form-group">
-			<?php echo Form::label('Name', 'name', array('class'=>'control-label')); ?>
+			<?php echo Form::label('username', 'username', array('class'=>'control-label')); ?>
 
-				<?php echo Form::input('name', Input::post('name', isset($post) ? $post->title : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'お名前を入力してください')); ?>
+				<?php echo Form::input('username', Input::post('username', isset($post) ? $post->title : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'ユーザー名を入力してください')); ?>
 
 		</div>
 		<div class="form-group">
@@ -13,9 +13,9 @@
 
 		</div>
 		<div class="form-group">
-			<?php echo Form::label('Pass', 'pass', array('class'=>'control-label')); ?>
+			<?php echo Form::label('Password', 'password', array('class'=>'control-label')); ?>
 
-				<?php echo Form::input('pass', Input::post('pass', isset($post) ? $post->title : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'パスワードを入力してください')); ?>
+				<?php echo Form::password('password', Input::post('pass', isset($post) ? $post->title : ''), array('class' => 'col-md-4 form-control', 'placeholder'=>'パスワードを入力してください')); ?>
 
 		</div>
 		<div class="form-group">

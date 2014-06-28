@@ -28,11 +28,11 @@ class Controller_Posts extends Controller_Template{
 	{
 		if (Input::method() == 'POST')
 		{
-			$val = Model_Posts::validate('create');
+			$val = Model_Post::validate('create');
 
 			if ($val->run())
 			{
-				$posts = Model_Posts::forge(array(
+				$posts = Model_Post::forge(array(
 					'title' => Input::post('title'),
 					'body' => Input::post('body'),
 					'img' => Input::post('img'),
@@ -69,13 +69,13 @@ class Controller_Posts extends Controller_Template{
 	{
 		is_null($id) and Response::redirect('posts');
 
-		if ( ! $post = Model_Posts::find($id))
+		if ( ! $post = Model_Post::find($id))
 		{
 			Session::set_flash('error', 'Could not find post #'.$id);
 			Response::redirect('posts');
 		}
 
-		$val = Model_Posts::validate('edit');
+		$val = Model_Post::validate('edit');
 
 		if ($val->run())
 		{
@@ -127,7 +127,7 @@ class Controller_Posts extends Controller_Template{
 	{
 		is_null($id) and Response::redirect('posts');
 
-		if ($posts = Model_Posts::find($id))
+		if ($posts = Model_Post::find($id))
 		{
 			$posts->delete();
 

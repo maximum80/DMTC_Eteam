@@ -54,7 +54,6 @@ class Controller_Welcome extends Controller
 
         $view->set_safe('form', $form->build(Uri::create('')));
         $view->set('error', $error);
-
         return $view;
     }
 

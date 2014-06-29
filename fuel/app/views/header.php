@@ -34,36 +34,3 @@
     </ul>
   </div>
 </div>
-
-<div class="header">
-	<div class="container">
-		<div class="row">
-			<h1>osusowake</h1>
-			<div class="h1-p">
-			<p>お裾分けで素敵な関係を築こう。</p>
-    	</div>
-  	</div>
-		<?php if (isset($error)): ?>
-		<?php echo $error ?>
-		<?php endif ?>
-		<?php echo $form ?>
-	</div>
-</div>
-
-<!--         <div class="col-lg-10">
-        <input type="text" class="form-control" id="inputEmail" placeholder="Email">
-        </div>
-      </div>
-
-      <div class="form-group">
-        <div class="col-lg-10">
-        <input type="password" class="form-control" id="inputPassword" placeholder="Password">
-        </div>
-      </div>
-        <div class="col-lg-10">
-<button type="button" class="btn btn-primary btn-lg">ログインする</button>
-</div>
- -->
-
-  </body>
-</html>

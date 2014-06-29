@@ -1025,7 +1025,8 @@ pre code {
 }
 
 form {
-  margin: 0 0 20px;
+  margin: 0 50px 20px;
+  text-align: center;
 }
 
 fieldset {

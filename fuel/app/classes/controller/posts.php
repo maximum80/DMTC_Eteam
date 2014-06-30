@@ -13,7 +13,7 @@ class Controller_Posts extends Controller_Template{
 	{
 		is_null($id) and Response::redirect('posts');
 
-		if ( ! $data['post'] = Model_Posts::find($id))
+		if ( ! $data['post'] = Model_Post::find($id))
 		{
 			Session::set_flash('error', 'Could not find post #'.$id);
 			Response::redirect('posts');
@@ -32,6 +32,7 @@ class Controller_Posts extends Controller_Template{
 
 			if ($val->run())
 			{
+
 				$posts = Model_Post::forge(array(
 					'title' => Input::post('title'),
 					'body' => Input::post('body'),

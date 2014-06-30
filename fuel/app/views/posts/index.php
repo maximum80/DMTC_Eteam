@@ -1,4 +1,87 @@
-<h2>Listing <span class='muted'>Posts</span></h2>
+<div class="box_height">
+  <div class="row">
+
+    <h1><span class="color:#2980B9">現在進行中のお裾分け</span></h1>
+
+    <div class="box_aoi">
+  <h2>カレーが余ってます！</h2>
+  <a class="img-thumbnall"><?php echo Asset::img("curry.png");?></a>
+<button type="button" onclick="location.href='http://localhost/view/'"class="btn btn-primary btn-lg">詳細へ</button>
+    </div>
+
+
+    <div class="box_aoi">
+  <h2>おいしい肉じゃがあります</h2>
+  <a class="img-thumbnall"><?php echo Asset::img("mainimg.jpg");?></a>
+<button type="button" class="btn btn-primary btn-lg">詳細へ</button>
+    </div>
+
+        <div class="box_aoi">
+  <h2>スイカ熟れてます！</h2>
+  <a class="img-thumbnall"><?php echo Asset::img("suica.jpg");?></a>
+<button type="button" class="btn btn-primary btn-lg">詳細へ</button>
+    </div>
+
+   <div class="box_aoi">
+  <h2>カレーが余ってます！</h2>
+  <a class="img-thumbnall"><?php echo Asset::img("curry.png");?></a>
+<button type="button" class="btn btn-primary btn-lg">詳細へ</button>
+    </div>
+
+
+    <div class="box_aoi">
+  <h2>おいしい肉じゃがあります</h2>
+  <a class="img-thumbnall"><?php echo Asset::img("mainimg.jpg");?></a>
+<button type="button" class="btn btn-primary btn-lg">詳細へ</button>
+    </div>
+
+        <div class="box_aoi">
+  <h2>スイカ熟れてます！</h2>
+  <a class="img-thumbnall"><?php echo Asset::img("suica.jpg");?></a>
+<button type="button" class="btn btn-primary btn-lg">詳細へ</button>
+    </div>   <div class="box_aoi">
+  <h2>カレーが余ってます！</h2>
+  <a class="img-thumbnall"><?php echo Asset::img("curry.png");?></a>
+<button type="button" class="btn btn-primary btn-lg">詳細へ</button>
+    </div>
+
+
+    <div class="box_aoi">
+  <h2>おいしい肉じゃがあります</h2>
+  <a class="img-thumbnall"><?php echo Asset::img("mainimg.jpg");?></a>
+<button type="button" class="btn btn-primary btn-lg">詳細へ</button>
+    </div>
+
+        <div class="box_aoi">
+  <h2>スイカ熟れてます！</h2>
+  <a class="img-thumbnall"><?php echo Asset::img("suica.jpg");?></a>
+<button type="button" class="btn btn-primary btn-lg">詳細へ</button>
+    </div>   <div class="box_aoi">
+  <h2>カレーが余ってます！</h2>
+  <a class="img-thumbnall"><?php echo Asset::img("curry.png");?></a>
+<button type="button" class="btn btn-primary btn-lg">詳細へ</button>
+    </div>
+
+
+    <div class="box_aoi">
+  <h2>おいしい肉じゃがあります</h2>
+  <a class="img-thumbnall"><?php echo Asset::img("mainimg.jpg");?></a>
+<button type="button" class="btn btn-primary btn-lg">詳細へ</button>
+    </div>
+
+        <div class="box_aoi">
+  <h2>スイカ熟れてます！</h2>
+  <a class="img-thumbnall"><?php echo Asset::img("suica.jpg");?></a>
+<button type="button" class="btn btn-primary btn-lg">詳細へ</button>
+    </div>
+
+  </div>
+</div>
+  </body>
+</html>
+
+
+<!-- <h2>Listing <span class='muted'>Posts</span></h2>
 <br>
 <?php if ($posts): ?>
 <table class="table table-striped">
@@ -44,3 +127,4 @@
 	<?php echo Html::anchor('posts/create', 'Add new Post', array('class' => 'btn btn-success')); ?>
 
 </p>
+ -->

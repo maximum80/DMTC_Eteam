@@ -14,6 +14,7 @@ return array(
 				5 => '006_rename_field_pass_to_password_in_users',
 				6 => '007_add_userinfo_to_users',
 				7 => '008_rename_field_prifile_fields_to_profile_fields_in_users',
+				8 => '009_create_monkeys',
 			),
 		),
 		'module' => 

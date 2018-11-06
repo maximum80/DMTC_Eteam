@@ -1,0 +1,4 @@
+<?php defined('COREPATH') or exit('No direct script access allowed'); ?>
+
+ERROR - 2014-09-21 08:04:54 --> Error - SQLSTATE[42S02]: Base table or view not found: 1146 Table 'osusowake.monkeys' doesn't exist with query: "SELECT `t0`.`id` AS `t0_c0`, `t0`.`name` AS `t0_c1`, `t0`.`description` AS `t0_c2`, `t0`.`created_at` AS `t0_c3`, `t0`.`updated_at` AS `t0_c4` FROM `monkeys` AS `t0`" in /Applications/MAMP/htdocs/DMTC_Eteam/fuel/core/classes/database/pdo/connection.php on line 234
+ERROR - 2014-09-21 08:05:02 --> Error - SQLSTATE[42S02]: Base table or view not found: 1146 Table 'osusowake.monkeys' doesn't exist with query: "SELECT `t0`.`id` AS `t0_c0`, `t0`.`name` AS `t0_c1`, `t0`.`description` AS `t0_c2`, `t0`.`created_at` AS `t0_c3`, `t0`.`updated_at` AS `t0_c4` FROM `monkeys` AS `t0`" in /Applications/MAMP/htdocs/DMTC_Eteam/fuel/core/classes/database/pdo/connection.php on line 234
